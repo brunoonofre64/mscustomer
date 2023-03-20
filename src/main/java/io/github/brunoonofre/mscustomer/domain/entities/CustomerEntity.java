@@ -18,8 +18,14 @@ public class CustomerEntity {
     @Id
     @Column(columnDefinition = "VARCHAR(36)")
     private String uuid;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String cpf;
+
+    @Column(nullable = false)
     private Long age;
 
     @PrePersist
