@@ -6,6 +6,6 @@ import io.github.brunoonofre.mscustomer.domain.entities.CustomerEntity;
 
 public interface CustomerMapper {
 
-    CustomerEntity mapperToEntity(CustomerInputDTO inputDTO);
-    CustomerOutputDTO mapperToOutputDTO(CustomerEntity customerEntity);
+    CustomerEntity mapToEntity(CustomerInputDTO inputDTO);
+    CustomerOutputDTO mapToOutputDTO(CustomerEntity customerEntity);
 }

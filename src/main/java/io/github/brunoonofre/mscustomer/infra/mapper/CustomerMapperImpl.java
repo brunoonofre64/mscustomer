@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class CustomerMapperImpl implements CustomerMapper {
 
     @Override
-    public CustomerEntity mapperToEntity(CustomerInputDTO inputDTO) {
+    public CustomerEntity mapToEntity(CustomerInputDTO inputDTO) {
         if (inputDTO == null) {
             throw new BusinesRuleException(ErrorMessage.BUSINES_RULE);
         }
@@ -26,13 +26,14 @@ public class CustomerMapperImpl implements CustomerMapper {
     }
 
     @Override
-    public CustomerOutputDTO mapperToOutputDTO(CustomerEntity customerEntity) {
+    public CustomerOutputDTO mapToOutputDTO(CustomerEntity customerEntity) {
         if (customerEntity == null) {
             throw new BusinesRuleException(ErrorMessage.BUSINES_RULE);
         }
 
         return CustomerOutputDTO
                 .builder()
+                .uuid(customerEntity.getUuid())
                 .name(customerEntity.getName())
                 .age(customerEntity.getAge())
                 .cpf(customerEntity.getCpf())

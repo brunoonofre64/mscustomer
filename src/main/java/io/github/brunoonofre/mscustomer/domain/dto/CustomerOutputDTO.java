@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerOutputDTO {
+    private String uuid;
     private String name;
     private String cpf;
     private Long age;

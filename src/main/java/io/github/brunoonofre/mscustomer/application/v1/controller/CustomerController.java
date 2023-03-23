@@ -33,8 +33,8 @@ public class CustomerController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping
-    public CustomerOutputDTO findCustomerByCpf(@RequestParam String cpf) {
+    @GetMapping(params = "cpf")
+    CustomerOutputDTO findCustomerByCpf(@RequestParam("cpf") String cpf) {
         return service.findCustomerByCpf(cpf);
     }
 }

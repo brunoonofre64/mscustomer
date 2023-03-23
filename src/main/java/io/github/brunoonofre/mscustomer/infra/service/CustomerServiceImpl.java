@@ -18,7 +18,6 @@ public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerMapper mapper;
 
-
     @Override
     public CustomerEntity saveNewCustomer(CustomerInputDTO inputDTO) {
         if(inputDTO == null) {
@@ -29,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new BusinesRuleException(ErrorMessage.BUSINES_RULE);
         }
 
-        CustomerEntity customer = mapper.mapperToEntity(inputDTO);
+        CustomerEntity customer = mapper.mapToEntity(inputDTO);
         customerRepository.save(customer);
 
         return customer;
@@ -44,6 +43,6 @@ public class CustomerServiceImpl implements CustomerService {
         var customer = customerRepository.findByCpf(cpf)
                 .orElseThrow(() -> new BusinesRuleException(ErrorMessage.BUSINES_RULE));
 
-        return mapper.mapperToOutputDTO(customer);
+        return mapper.mapToOutputDTO(customer);
     }
 }
